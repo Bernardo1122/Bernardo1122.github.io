@@ -1,184 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="keywords" content="hexo,个人博客,blog" />
-  <meta name="description" content="某某的个人博客" />
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
-  <link rel="dns-prefetch" href="https://at.alicdn.com">
-  
-  <link rel="dns-prefetch" href="https://widget.daovoice.io">
-  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
-  <link rel="dns-prefetch" href="https://im.daovoice.io">
-  
-  
-  <link rel="dns-prefetch" href="https://hm.baidu.com/">
-  
-  
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://api.github.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  
-  <link rel="stylesheet" type="text/css" href="/./style/main.css">
-	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>发布 Hexo 博客遇到的一些问题</title>
-  
-  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
-  </script>
-  
-  
-    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
-  </script>
-  
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body>
-  <canvas id="pattern-placeholder" height="230"></canvas>
-<div class="navbar-header">
-  <a class="blog-title" href="/">bernardo�ɶ�</a>
-  <a class="face-img" href="/">
-    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
-  </a>
-</div>
-<main>
-  <div class="article-title">
-    
-  
-  <h1 class="title">
-    发布 Hexo 博客遇到的一些问题
-  </h1>
-  
+extends includes/layout.pug
 
-
-    <ul class="article-info">
-      <li>
-        发布
-        <time datetime="2020-04-29T14:40:01.230Z" itemprop="datePublished">2020-04-29</time>
-      </li>
-      <li>
+block content
+  article#post(class="")
+    #article-container!=page.content
+    include includes/post/post-copyright.pug
+    .tag_share
+      if (theme.post_meta.post.tags)
+        .post-meta__tag-list
+          each item, index in page.tags.data
+            a(href=url_for(item.path)).post-meta__tags #[=item.name]
+      !=partial('includes/share/index', {}, {cache:theme.fragment_cache})
         
-    更新 <time datetime="2020-04-29T14:40:03.416Z" itemprop="dateUpdated">2020-04-29</time>
+    if theme.reward.enable
+      !=partial('includes/post/reward', {}, {cache:theme.fragment_cache})
 
-      </li>
-      <li id="busuanzi_container_page_pv">
-        阅读 <span id="busuanzi_value_page_pv"></span>
-      </li>
-    </ul>
-  </div>
-  <div class="container">
-    <div class="article">
-      <div class="content">
-        
-        <ol>
-<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：<br><img src="https://img-blog.csdnimg.cn/2020042922193961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在网上查询了一下，大多数的解释是 Github 上的 <code>bernardo1122.github.io</code>中的<code>bernardo1122</code>和自己的 Github 账号名不相同导致的，但我的是相同的。通过查找，发现 Github Pages 中的 cunstom domain 中的网址消失了，重新填补，解决问题：<br><img src="https://img-blog.csdnimg.cn/20200429222700842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果每次更新博客，都需要重新操作，很麻烦，可以在<code>D:\HexoBlog\source</code>目录下，新建<code>CNAME</code>文件，内容为<code>www.bernardo.fun</code>，即可解决。<br><img src="https://img-blog.csdnimg.cn/20200429222902519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<ol start="2">
-<li>如何发布 Hexo ：<br>可以使用 CSDN 博客中的 markdown ，这样写好文章后，既可以发送到 Hexo ，也可以发布 CSDN 博客。点击导出，并复制到即可：<br><img src="https://img-blog.csdnimg.cn/20200429223224532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429223300200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<ul>
-<li><p>接着在空白处，右键，选择 <code>Git Bash Here</code>执行如下命令：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate  &#x2F;&#x2F;用于生成静态文件</span><br></pre></td></tr></table></figure>
+    //- ad
+    if theme.ad && theme.ad.post
+      .post-ad!=theme.ad.post
 
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server &#x2F;&#x2F; 用于启动服务器，主要用来本地预览</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy &#x2F;&#x2F;用于将本地文件发布到github等git仓库上</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      </div>
-        <div class="support-author">
-          <p>感谢您的阅读。 🙏
-          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
-            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
-          </p>
-        </div>
-        <!--
-            <div class="like ">
-              <div class="like-button">
-                <a id="like-note" href="">
-                  <i class="icon-heart"></i>喜欢
-                </a>
-              </div>
-              <span id="likes-count">256</span>
-            </div>
-        -->
-        <div class="otherLink">
-          <div class="previous">
-          </div>
-          <div class="next">
-          </div>
-        </div>
-        <div class="comments" id="comments">
-          
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-  const gitalk = new Gitalk({
-    clientID: '8888a8888',
-    clientSecret: '8888886666666',
-    repo: 'xxxx.github.io',
-    owner: 'admin',
-    admin: ['admin'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false
-  })
-
-  gitalk.render('comments');
-</script>
-
-
-        </div>
-      </div>
-    </div>
-   </div>
-</main>
-<div class="footer">
-  <div class="info">
-    <p>
-    <a href="https://hexo.io" target="_blank" rel="noopener"> Hexo </a> 强力驱动 |
-      <a href="https://github.com/Youthink/hexo-themes-yearn" target="_blank" rel="noopener"> Yearn </a>
-      主题
-    </p>
-    <p>&copy;2013-2018 某某的博客 京ICP备xxxxxx号</p>
-  </div>
-</div>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<script>//console
-  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
-  var canConsole = true;
-  var consoleInfo = (function(consoleConfig) {
-  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
-    return;
-  }
-  var consoleColor = '#6190e8';
-  var _console;
-  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
-  var textStyle = 'color: ' + consoleColor + ';';
-
-  consoleConfig.map(o => {
-    var num = (o.match(/%c/g) || []).length;
-    if(/^http(s)?:\/\//.test(o)) {
-      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
-      return;
-    }
-    if (num > 0) {
-      var logArguments = [];
-      for (var i = 0; i < num; i++) {
-        if (i % 2 === 0) {
-          logArguments.push(backgroundTextStyle);
-        } else {
-          logArguments.push(textStyle);
-        }
-      }
-      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
-      return;
-    }
-    console.log('%c' + o, textStyle);
-  });
-}(consoleConfig));</script><script type="text/javascript" src="/./js/main.js"></script>
-
-  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
-</body>
-</html>
+    include includes/pagination.pug
+    if theme.related_post && theme.related_post.enable
+      != related_posts(page,site.posts)
+    if page.comments !== false
+      include includes/comments/index.pug
