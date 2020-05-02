@@ -1,160 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>LeetCode</title>
-    <url>/2020/04/29/LeetCode/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>将 Hexo 博客部署到 Coding（码云）</title>
-    <url>/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/</url>
-    <content><![CDATA[<ul>
-<li>由于Github的服务器在国外，所以将Hexo部署到Github上导致访问速度很慢，Coding是仿照Github的开源代码库，中文界面，访问速度也很快。<a id="more"></a></li>
-<li>百度搜索<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_3_dg&wd=coding&oq=remote%253A%2520%25E8%25AE%25A4%25E8%25AF%2581%25E5%25A4%25B1%25E8%25B4%25A5%252C%25E8%25AF%25B7%25E7%25A1%25AE%25E8%25AE%25A4%25E6%2582%25A8%25E8%25BE%2593%25E5%2585%25A5%25E4%25BA%2586%25E6%25AD%25A3%25E7%25A1%25AE%25E7%259A%2584%25E8%25B4%25A6%25E5%258F%25B7%25E5%25AF%2586%25E7%25A0%2581%25E3%2580%2582&rsv_pq=c84bc44400016ea0&rsv_t=0e43Dqbws7M16vZ4r3ulDmrz%2b3Z83pM7SPcyeq7ToqYvMvRojmEs8yQQZKYAlzV5DiFn&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_sug3=25&rsv_sug1=14&rsv_sug7=100&rsv_sug2=0&inputT=967&rsv_sug4=2204" target="_blank" rel="noopener">CODING - 一站式软件研发管理平台</a>进行注册。</li>
-<li>添加项目选择DevOps项目：<br><img src="https://img-blog.csdnimg.cn/20200430233814502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>取名要与自己的团队名相同。</li>
-<li>下图中HTTPS后的地址复制到<code>_config.yml</code>里面：<br><img src="https://img-blog.csdnimg.cn/20200430234026854.png" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>下图位置输入<code>coding: https://e.coding.net/bernardo/bernardo.git</code>。<font color=blue><strong>网上的众多教程写的都是添加SSH公钥的方法来解决的，但我没有通过。尝试着用HTTPS添加，就通过了</strong></font>。<br><img src="https://img-blog.csdnimg.cn/20200430234158321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>在<code>D:\HexoBlog\source</code>路径下创建名为<code>staticfile</code>的文件。（有的教程中也没有出现这一步）<br><img src="https://img-blog.csdnimg.cn/20200430234524197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>依次输入以下命令：   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-  会弹出输入coding用户名和密码的对话框，<font color=red><strong>注意：coding的用户名是你的手机号或者是邮箱，不是团队名（bernardo是错的）</strong></font>，填写好即可。</li>
-<li>可以看代码仓库中出现了有关Hexo的文件：<br><img src="https://img-blog.csdnimg.cn/2020043023532497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>继续部署静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235405383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>修改静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235613491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>下拉，自定义域名：<br><img src="https://img-blog.csdnimg.cn/20200430235642555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>这里需要到腾讯云，将域名解析中原来CNAME中绑定的Github的网址换Coding的网址，等待10分钟，证书状态就显示正常。</li>
-<li>通过ping命令测试网速coding 和 Github 的网速：<br><img src="https://img-blog.csdnimg.cn/20200430235932913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>如上图，将Hexo绑定到Coding明显快于Github。</li>
-<li>到目前为止，有三个网址可以访问到我的个人博客：<br><a href="https://www.bernardo.fun">https://www.bernardo.fun</a><br><a href="https://bernardo1122.github.io" target="_blank" rel="noopener">https://bernardo1122.github.io</a> </li>
-</ul>
-<p><strong>疑问</strong>：点击此网址转到的链接还是 <a href="https://www.bernardo.fun">https://www.bernardo.fun</a> ？？？？？<br><a href="http://alxcue.coding-pages.com" target="_blank" rel="noopener">http://alxcue.coding-pages.com</a></p>
-<ul>
-<li>下篇继续更新搭建个人博客中遇到的问题，to be continued…….</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>剑指offer题解</title>
-    <url>/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/04/28/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  <link rel="dns-prefetch" href="https://at.alicdn.com">
+  
+  
+  
+  <link rel="stylesheet" type="text/css" href="/./style/main.css">
+	<link rel="shortcut icon" href="" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>计算机网络与互联网知识点总结（四）（面试重点部分）</title>
+  
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+  <canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/">bernardo</a>
+  <a class="face-img" href="/">
+    <img src="">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    计算机网络与互联网知识点总结（四）（面试重点部分）
+  </h1>
+  
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>学习发布个人博客</title>
-    <url>/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<ul>
-<li>今天学习了一下如何搭建Hexo博客，以及如何写博客。<a id="more"></a></li>
-<li>Hexo在Git中下载，然后与GitHub关联。</li>
-<li>可以绑定自定义域名。</li>
-<li>最后研究一下如何写博客。</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>发布 Hexo 博客遇到的一些问题</title>
-    <url>/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol>
-<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：<a id="more"></a>
-<img src="https://img-blog.csdnimg.cn/2020042922193961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在网上查询了一下，大多数的解释是 Github 上的 <code>bernardo1122.github.io</code>中的<code>bernardo1122</code>和自己的 Github 账号名不相同导致的，但我的是相同的。通过查找，发现 Github Pages 中的 cunstom domain 中的网址消失了，重新填补，解决问题：<br><img src="https://img-blog.csdnimg.cn/20200429222700842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果每次更新博客，都需要重新操作，很麻烦，可以在<code>D:\HexoBlog\source</code>目录下，新建<code>CNAME</code>文件，内容为<code>www.bernardo.fun</code>，即可解决。<br><img src="https://img-blog.csdnimg.cn/20200429222902519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<ol start="2">
-<li>如何发布 Hexo ：<br>可以使用 CSDN 博客中的 markdown ，这样写好文章后，既可以发送到 Hexo ，也可以发布 CSDN 博客。点击导出，并复制到即可：<br><img src="https://img-blog.csdnimg.cn/20200429223224532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429223300200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<ul>
-<li><p>接着在空白处，右键，选择 <code>Git Bash Here</code>执行如下命令：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate  &#x2F;&#x2F;用于生成静态文件</span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server &#x2F;&#x2F; 用于启动服务器，主要用来本地预览</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy &#x2F;&#x2F;用于将本地文件发布到github等git仓库上</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>更改 Hexo 博客主题</title>
-    <url>/2020/04/30/%E6%9B%B4%E6%94%B9%20Hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/</url>
-    <content><![CDATA[<p>最近完成了以下工作：</p>
-<ul>
-<li>搭建 Hexo 博客。<a id="more"></a></li>
-<li>挂载到 GitHub 上。</li>
-<li>绑定个人域名 <a href="https://www.bernardo.fun">https://www.bernardo.fun</a>。</li>
-</ul>
-<p>初试化的 Hexo 博客是不炫酷的，所以接下来需要更换 Hexo 的主题。</p>
-<ul>
-<li>进入网站 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a> 挑选自己喜欢的主题：<br><img src="https://img-blog.csdnimg.cn/20200430123830705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>以我选择的 Yearn 主题为例：<br><img src="https://img-blog.csdnimg.cn/20200430134226488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>复制网址到 git Bash：<br><img src="https://img-blog.csdnimg.cn/20200430134305396.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>在<code>D:\HexoBlog\themes</code>目录下打开 Git Bash 输入如下命令：<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;Youthink&#x2F;hexo-themes-yearn</span><br></pre></td></tr></table></figure>
-<img src="https://img-blog.csdnimg.cn/20200430135021288.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li><p>在<code>D:\HexoBlog\themes</code>目录下多了一个名<code>hexo-themes-yearn</code>的文件夹。<br><img src="https://img-blog.csdnimg.cn/20200430135141503.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>修改根目录下的<code>_config.yml</code>文件，将原来的 landscape 改为 hexo-themes-yearn 即可。<br><img src="https://img-blog.csdnimg.cn/20200430135345134.png" alt="在这里插入图片描述"></p>
-</li>
-<li><p>在 Git Bash 中依次输入如下命令即可：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo server</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<p>对上述命令不理解的 可以参考我的上篇博文 <a href="https://blog.csdn.net/bwqiang/article/details/105850249" target="_blank" rel="noopener">发布 Hexo 博客遇到的一些问题</a> 。</p>
-</li>
-<li><p>可以看到新的主题已经形成：<br><img src="https://img-blog.csdnimg.cn/20200430140358504.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>也可以下载多种自己喜欢的主题，进行加工整理，以后便可在多种主题中自由切换，不会改变博客的内容：</p>
-</li>
-<li><p>（1）<br><img src="https://img-blog.csdnimg.cn/20200430143541484.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>（2）<br><img src="https://img-blog.csdnimg.cn/20200430143758440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-<li><p>（3）<br><img src="https://img-blog.csdnimg.cn/202004301548523.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-</li>
-</ul>
-<ul>
-<li>（4）<br><img src="https://img-blog.csdnimg.cn/20200430155056492.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>（5）<br><img src="https://img-blog.csdnimg.cn/20200430160141125.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>（6）<br><img src="https://img-blog.csdnimg.cn/20200430160301261.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>每个主题都有自己的特点，下篇博文更新如何扩充主题内容，to be continued….</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>计算机网络与互联网知识点总结（四）（面试重点部分）</title>
-    <url>/2020/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%88%E9%9D%A2%E8%AF%95%E9%87%8D%E7%82%B9%E9%83%A8%E5%88%86%EF%BC%89/</url>
-    <content><![CDATA[<h1 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h1><h2 id="1、运输层协议概述"><a href="#1、运输层协议概述" class="headerlink" title="1、运输层协议概述"></a>1、运输层协议概述</h2><h3 id="1-1-进程之间的通信"><a href="#1-1-进程之间的通信" class="headerlink" title="1.1 进程之间的通信"></a>1.1 进程之间的通信</h3><ul>
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2020-05-02T02:35:32.961Z" itemprop="datePublished">2020-05-02</time>
+      </li>
+      <li>
+        
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <h1 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h1><h2 id="1、运输层协议概述"><a href="#1、运输层协议概述" class="headerlink" title="1、运输层协议概述"></a>1、运输层协议概述</h2><h3 id="1-1-进程之间的通信"><a href="#1-1-进程之间的通信" class="headerlink" title="1.1 进程之间的通信"></a>1.1 进程之间的通信</h3><ul>
 <li>运输层<strong>向上面的应用层提供通信服务</strong>，属于面向通信部分的最高层，同时也是用户功能中的最低层。<br><img src="https://img-blog.csdnimg.cn/20200413164540729.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
 <li>两个主机进行通信，就是两个主机中的<strong>应用进程互相通信</strong>。从运输层看，<strong>通信的真正端点并不是主机，而是主机中的进程</strong>。<strong>端到端的通信</strong>是应用进程之间的通信。</li>
 <li>运输层的一个重要功能：<strong>复用</strong>和<strong>分用</strong>。</li>
@@ -404,6 +304,84 @@
 <li>2018年去首师大考研调剂，老师问的问题，至今才发现，原来是计网上的知识点。</li>
 <li>下图，粗实线箭头表示对客户进程的正常变迁。组虚线箭头表示对服务器进程的正常变迁。细线箭头表示异常变迁。<br><img src="https://img-blog.csdnimg.cn/20200416223829397.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
 </ul>
-]]></content>
-  </entry>
-</search>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+
+        </div>
+      </div>
+    </div>
+   </div>
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io" target="_blank" rel="noopener"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn" target="_blank" rel="noopener"> Yearn </a>
+      主题
+    </p>
+    <p>&copy; </p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = ''.split(',');
+  var canConsole = ;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/./js/main.js"></script>
+
+  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
+</body>
+</html>
