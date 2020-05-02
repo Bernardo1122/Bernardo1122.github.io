@@ -6,6 +6,70 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
+    <title>剑指offer 表示数值的字符串（C++）</title>
+    <url>/2020/05/02/%E5%89%91%E6%8C%87offer%20%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88C++%EF%BC%89/</url>
+    <content><![CDATA[<h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>请实现一个函数用来判断字符串是否表示数值（包括整数和小数）。例如，字符串”+100”,”5e2”,”-123”,”3.1416”和”-1E-16”都表示数值。 但是”12e”,”1a3.14”,”1.2.3”,”+-5”和”12e+4.3”都不是。</p>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><ul>
+<li>这是一道需要考虑情况非常多的题目，包括case的情况都没有完全覆盖，比如没有对 “123.45ee+6” 这种情况进行考虑（非法的，OJ判合法）。</li>
+</ul>
+<ol>
+<li><p>空字符返回false。</p>
+</li>
+<li><p>非法字符返回false。即出现a b  等等。</p>
+</li>
+<li><p>如果只有唯一一个字符的时候，必须是0 到   9  之间的数字字符。</p>
+</li>
+<li><p>首字符如果是运算符（+  - ），第二个字符必须是0  到 9 之间的数字 或者是 小数点（-.123）也是合理的字符。</p>
+</li>
+<li><p>字符中的小数点只能出现一次。</p>
+</li>
+<li><p>判断e/E是否存在：<br>   存在：</p>
+<ol>
+<li><p>e/E 只能出现1次。</p>
+</li>
+<li><p>e/E 前面 除首字符外，不能出现运算符。</p>
+</li>
+<li><p>e/E 后一位 允许出现 运算符。</p>
+</li>
+<li><p>e/E 后面 不允许出现小数。</p>
+</li>
+<li><p>e/E 不能是最后一个字符。</p>
+<p>不存在：</p>
+<ol>
+<li>运算符如果存在只能是首字符。 不能出现在字符串中间。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 1、判断字符串是否为空</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strlen</span>(<span class="built_in">string</span>) == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2、判断所有字符均是合法字符</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">IsLeaglString</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; i &lt; <span class="built_in">strlen</span>(<span class="built_in">string</span>); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> ((<span class="built_in">string</span>[i] &gt;= <span class="string">'0'</span> <span class="keyword">and</span> <span class="built_in">string</span>[i] &lt;= <span class="string">'9'</span>) <span class="keyword">or</span></span><br><span class="line">                <span class="built_in">string</span>[i] == <span class="string">'.'</span> <span class="keyword">or</span> <span class="built_in">string</span>[i] == <span class="string">'+'</span> <span class="keyword">or</span></span><br><span class="line">                <span class="built_in">string</span>[i] == <span class="string">'-'</span> <span class="keyword">or</span> <span class="built_in">string</span>[i] == <span class="string">'E'</span> <span class="keyword">or</span></span><br><span class="line">                <span class="built_in">string</span>[i] == <span class="string">'e'</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3、只有一个字符时候 必须是0 到 9之间的字符</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">Onechar</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strlen</span>(<span class="built_in">string</span>) == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[<span class="number">0</span>] &gt;= <span class="string">'0'</span> <span class="keyword">and</span> <span class="built_in">string</span>[<span class="number">0</span>] &lt;= <span class="string">'9'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 4、如果首字符是运算符 第二个字符必须是 0 到 9 之间的数  或者是 .  例如 -.123</span></span><br><span class="line">    <span class="comment">// 如果首字符不是运算符 必须是0 到 9之间的数字</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isOperator</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">string</span>[<span class="number">0</span>] == <span class="string">'-'</span> <span class="keyword">or</span> <span class="built_in">string</span>[<span class="number">0</span>] == <span class="string">'+'</span>)</span><br><span class="line">            <span class="keyword">if</span> ((<span class="built_in">string</span>[<span class="number">1</span>] &gt;= <span class="string">'0'</span> <span class="keyword">and</span> <span class="built_in">string</span>[<span class="number">1</span>] &lt;= <span class="string">'9'</span>) <span class="keyword">or</span> <span class="built_in">string</span>[<span class="number">1</span>] == <span class="string">'.'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">string</span>[<span class="number">0</span>] &gt;= <span class="string">'0'</span> <span class="keyword">and</span> <span class="built_in">string</span>[<span class="number">0</span>] &lt;= <span class="string">'9'</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 6、小数点必须只有一个</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isOnlyOneDot</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">strlen</span>(<span class="built_in">string</span>); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[i] == <span class="string">'.'</span>)</span><br><span class="line">                num++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (num &lt; <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 7、判断是否有e/E的存在 返回e的位置</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">isExsitE</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>, <span class="keyword">int</span> *num)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, location = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; i &lt; <span class="built_in">strlen</span>(<span class="built_in">string</span>); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[i] == <span class="string">'E'</span> <span class="keyword">or</span> <span class="built_in">string</span>[i] == <span class="string">'e'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                location = i;</span><br><span class="line">                (*num)++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (location == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> location;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 8、不存在E/e 运算符只能在最前面</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isLegelOperator</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="built_in">strlen</span>(<span class="built_in">string</span>); i++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[i] == <span class="string">'+'</span> <span class="keyword">or</span> <span class="built_in">string</span>[i] == <span class="string">'-'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 9、如果有E/e存在 判断是否合法</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isLegalE</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>, <span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (; k &lt; i; k++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[k] == <span class="string">'+'</span> <span class="keyword">or</span> <span class="built_in">string</span>[k] == <span class="string">'-'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        i++;</span><br><span class="line">        <span class="comment">// E/e 是最后一个字符 返回false</span></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="built_in">strlen</span>(<span class="built_in">string</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// e/E后面有小数点 返回false</span></span><br><span class="line">        <span class="keyword">int</span> j = i;</span><br><span class="line">        <span class="keyword">for</span> (; j &lt; <span class="built_in">strlen</span>(<span class="built_in">string</span>); j++)</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">string</span>[j] == <span class="string">'.'</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">// 如果是 - 或 +  ， - 或 + 后面还必须有字符</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">string</span>[i] == <span class="string">'-'</span> <span class="keyword">or</span> <span class="built_in">string</span>[i] == <span class="string">'+'</span>)</span><br><span class="line">            <span class="keyword">if</span> (++i == <span class="built_in">strlen</span>(<span class="built_in">string</span>))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isNumeric</span><span class="params">(<span class="keyword">char</span>* <span class="built_in">string</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (IsEmpty(<span class="built_in">string</span>)) <span class="comment">// 字符串不空</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (IsLeaglString(<span class="built_in">string</span>)) <span class="comment">// 不存在非法字符</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (Onechar(<span class="built_in">string</span>)) <span class="comment">// 如果只有一个字符时</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 判断首字符是否合法</span></span><br><span class="line">                    <span class="keyword">if</span> (isOperator(<span class="built_in">string</span>))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="comment">// 小数点必须只有一个</span></span><br><span class="line">                        <span class="keyword">if</span> (isOnlyOneDot(<span class="built_in">string</span>))</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="comment">// 判断e是否存在</span></span><br><span class="line">                            <span class="keyword">int</span> num = <span class="number">0</span>; <span class="comment">// 统计e/E的个数</span></span><br><span class="line">                            <span class="keyword">int</span> i = isExsitE(<span class="built_in">string</span>, &amp;num);</span><br><span class="line">                            <span class="keyword">if</span> (num &gt; <span class="number">1</span>)</span><br><span class="line">							    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                            <span class="keyword">if</span> (i == <span class="number">-1</span>) <span class="comment">// e不存在</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="comment">// 判断运算符位置</span></span><br><span class="line">                                <span class="keyword">if</span> (isLegelOperator(<span class="built_in">string</span>))</span><br><span class="line">                                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">else</span> <span class="comment">// e存在</span></span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="keyword">if</span> (isLegalE(<span class="built_in">string</span>, i))</span><br><span class="line">                                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">else</span></span><br><span class="line">                            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span></span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>本题目是剑指offer 中代码量最大的一道题目。</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>发布 Hexo 博客遇到的一些问题</title>
+    <url>/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ol>
+<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：<a id="more"></a>
+<img src="https://img-blog.csdnimg.cn/2020042922193961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在网上查询了一下，大多数的解释是 Github 上的 <code>bernardo1122.github.io</code>中的<code>bernardo1122</code>和自己的 Github 账号名不相同导致的，但我的是相同的。通过查找，发现 Github Pages 中的 cunstom domain 中的网址消失了，重新填补，解决问题：<br><img src="https://img-blog.csdnimg.cn/20200429222700842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果每次更新博客，都需要重新操作，很麻烦，可以在<code>D:\HexoBlog\source</code>目录下，新建<code>CNAME</code>文件，内容为<code>www.bernardo.fun</code>，即可解决。<br><img src="https://img-blog.csdnimg.cn/20200429222902519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<ol start="2">
+<li>如何发布 Hexo ：<br>可以使用 CSDN 博客中的 markdown ，这样写好文章后，既可以发送到 Hexo ，也可以发布 CSDN 博客。点击导出，并复制到即可：<br><img src="https://img-blog.csdnimg.cn/20200429223224532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429223300200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ol>
+<ul>
+<li><p>接着在空白处，右键，选择 <code>Git Bash Here</code>执行如下命令：</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate  &#x2F;&#x2F;用于生成静态文件</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server &#x2F;&#x2F; 用于启动服务器，主要用来本地预览</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy &#x2F;&#x2F;用于将本地文件发布到github等git仓库上</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2020/04/28/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
@@ -25,27 +89,55 @@
 ]]></content>
   </entry>
   <entry>
-    <title>剑指offer题解</title>
-    <url>/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/</url>
-    <content><![CDATA[]]></content>
+    <title>学习发布个人博客</title>
+    <url>/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<ul>
+<li>今天学习了一下如何搭建Hexo博客，以及如何写博客。<a id="more"></a></li>
+<li>Hexo在Git中下载，然后与GitHub关联。</li>
+<li>可以绑定自定义域名。</li>
+<li>最后研究一下如何写博客。</li>
+</ul>
+]]></content>
   </entry>
   <entry>
-    <title>发布 Hexo 博客遇到的一些问题</title>
-    <url>/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ol>
-<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：<a id="more"></a>
-<img src="https://img-blog.csdnimg.cn/2020042922193961.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>在网上查询了一下，大多数的解释是 Github 上的 <code>bernardo1122.github.io</code>中的<code>bernardo1122</code>和自己的 Github 账号名不相同导致的，但我的是相同的。通过查找，发现 Github Pages 中的 cunstom domain 中的网址消失了，重新填补，解决问题：<br><img src="https://img-blog.csdnimg.cn/20200429222700842.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>如果每次更新博客，都需要重新操作，很麻烦，可以在<code>D:\HexoBlog\source</code>目录下，新建<code>CNAME</code>文件，内容为<code>www.bernardo.fun</code>，即可解决。<br><img src="https://img-blog.csdnimg.cn/20200429222902519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
-<ol start="2">
-<li>如何发布 Hexo ：<br>可以使用 CSDN 博客中的 markdown ，这样写好文章后，既可以发送到 Hexo ，也可以发布 CSDN 博客。点击导出，并复制到即可：<br><img src="https://img-blog.csdnimg.cn/20200429223224532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200429223300200.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ol>
+    <title>将 Hexo 博客部署到 Coding（码云）</title>
+    <url>/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/</url>
+    <content><![CDATA[<ul>
+<li>由于Github的服务器在国外，所以将Hexo部署到Github上导致访问速度很慢，Coding是仿照Github的开源代码库，中文界面，访问速度也很快。<a id="more"></a></li>
+<li>百度搜索<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_3_dg&wd=coding&oq=remote%253A%2520%25E8%25AE%25A4%25E8%25AF%2581%25E5%25A4%25B1%25E8%25B4%25A5%252C%25E8%25AF%25B7%25E7%25A1%25AE%25E8%25AE%25A4%25E6%2582%25A8%25E8%25BE%2593%25E5%2585%25A5%25E4%25BA%2586%25E6%25AD%25A3%25E7%25A1%25AE%25E7%259A%2584%25E8%25B4%25A6%25E5%258F%25B7%25E5%25AF%2586%25E7%25A0%2581%25E3%2580%2582&rsv_pq=c84bc44400016ea0&rsv_t=0e43Dqbws7M16vZ4r3ulDmrz%2b3Z83pM7SPcyeq7ToqYvMvRojmEs8yQQZKYAlzV5DiFn&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_sug3=25&rsv_sug1=14&rsv_sug7=100&rsv_sug2=0&inputT=967&rsv_sug4=2204" target="_blank" rel="noopener">CODING - 一站式软件研发管理平台</a>进行注册。</li>
+<li>添加项目选择DevOps项目：<br><img src="https://img-blog.csdnimg.cn/20200430233814502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
 <ul>
-<li><p>接着在空白处，右键，选择 <code>Git Bash Here</code>执行如下命令：</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate  &#x2F;&#x2F;用于生成静态文件</span><br></pre></td></tr></table></figure>
-
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server &#x2F;&#x2F; 用于启动服务器，主要用来本地预览</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo deploy &#x2F;&#x2F;用于将本地文件发布到github等git仓库上</span><br></pre></td></tr></table></figure>
-</li>
+<li>取名要与自己的团队名相同。</li>
+<li>下图中HTTPS后的地址复制到<code>_config.yml</code>里面：<br><img src="https://img-blog.csdnimg.cn/20200430234026854.png" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>下图位置输入<code>coding: https://e.coding.net/bernardo/bernardo.git</code>。<font color=blue><strong>网上的众多教程写的都是添加SSH公钥的方法来解决的，但我没有通过。尝试着用HTTPS添加，就通过了</strong></font>。<br><img src="https://img-blog.csdnimg.cn/20200430234158321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>在<code>D:\HexoBlog\source</code>路径下创建名为<code>staticfile</code>的文件。（有的教程中也没有出现这一步）<br><img src="https://img-blog.csdnimg.cn/20200430234524197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>依次输入以下命令：   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+  会弹出输入coding用户名和密码的对话框，<font color=red><strong>注意：coding的用户名是你的手机号或者是邮箱，不是团队名（bernardo是错的）</strong></font>，填写好即可。</li>
+<li>可以看代码仓库中出现了有关Hexo的文件：<br><img src="https://img-blog.csdnimg.cn/2020043023532497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>继续部署静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235405383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>修改静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235613491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>下拉，自定义域名：<br><img src="https://img-blog.csdnimg.cn/20200430235642555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>这里需要到腾讯云，将域名解析中原来CNAME中绑定的Github的网址换Coding的网址，等待10分钟，证书状态就显示正常。</li>
+<li>通过ping命令测试网速coding 和 Github 的网速：<br><img src="https://img-blog.csdnimg.cn/20200430235932913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>如上图，将Hexo绑定到Coding明显快于Github。</li>
+<li>到目前为止，有三个网址可以访问到我的个人博客：<br><a href="https://www.bernardo.fun">https://www.bernardo.fun</a><br><a href="https://bernardo1122.github.io" target="_blank" rel="noopener">https://bernardo1122.github.io</a> </li>
+</ul>
+<p><strong>疑问</strong>：点击此网址转到的链接还是 <a href="https://www.bernardo.fun">https://www.bernardo.fun</a> ？？？？？<br><a href="http://alxcue.coding-pages.com" target="_blank" rel="noopener">http://alxcue.coding-pages.com</a></p>
+<ul>
+<li>下篇继续更新搭建个人博客中遇到的问题，to be continued…….</li>
 </ul>
 ]]></content>
   </entry>
@@ -99,57 +191,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>将 Hexo 博客部署到 Coding（码云）</title>
-    <url>/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/</url>
-    <content><![CDATA[<ul>
-<li>由于Github的服务器在国外，所以将Hexo部署到Github上导致访问速度很慢，Coding是仿照Github的开源代码库，中文界面，访问速度也很快。<a id="more"></a></li>
-<li>百度搜索<a href="https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_3_dg&wd=coding&oq=remote%253A%2520%25E8%25AE%25A4%25E8%25AF%2581%25E5%25A4%25B1%25E8%25B4%25A5%252C%25E8%25AF%25B7%25E7%25A1%25AE%25E8%25AE%25A4%25E6%2582%25A8%25E8%25BE%2593%25E5%2585%25A5%25E4%25BA%2586%25E6%25AD%25A3%25E7%25A1%25AE%25E7%259A%2584%25E8%25B4%25A6%25E5%258F%25B7%25E5%25AF%2586%25E7%25A0%2581%25E3%2580%2582&rsv_pq=c84bc44400016ea0&rsv_t=0e43Dqbws7M16vZ4r3ulDmrz%2b3Z83pM7SPcyeq7ToqYvMvRojmEs8yQQZKYAlzV5DiFn&rqlang=cn&rsv_enter=0&rsv_dl=tb&rsv_btype=t&rsv_sug3=25&rsv_sug1=14&rsv_sug7=100&rsv_sug2=0&inputT=967&rsv_sug4=2204" target="_blank" rel="noopener">CODING - 一站式软件研发管理平台</a>进行注册。</li>
-<li>添加项目选择DevOps项目：<br><img src="https://img-blog.csdnimg.cn/20200430233814502.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>取名要与自己的团队名相同。</li>
-<li>下图中HTTPS后的地址复制到<code>_config.yml</code>里面：<br><img src="https://img-blog.csdnimg.cn/20200430234026854.png" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>下图位置输入<code>coding: https://e.coding.net/bernardo/bernardo.git</code>。<font color=blue><strong>网上的众多教程写的都是添加SSH公钥的方法来解决的，但我没有通过。尝试着用HTTPS添加，就通过了</strong></font>。<br><img src="https://img-blog.csdnimg.cn/20200430234158321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>在<code>D:\HexoBlog\source</code>路径下创建名为<code>staticfile</code>的文件。（有的教程中也没有出现这一步）<br><img src="https://img-blog.csdnimg.cn/20200430234524197.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>依次输入以下命令：   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-  会弹出输入coding用户名和密码的对话框，<font color=red><strong>注意：coding的用户名是你的手机号或者是邮箱，不是团队名（bernardo是错的）</strong></font>，填写好即可。</li>
-<li>可以看代码仓库中出现了有关Hexo的文件：<br><img src="https://img-blog.csdnimg.cn/2020043023532497.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>继续部署静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235405383.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>修改静态网站：<br><img src="https://img-blog.csdnimg.cn/20200430235613491.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-</ul>
-<ul>
-<li>下拉，自定义域名：<br><img src="https://img-blog.csdnimg.cn/20200430235642555.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>这里需要到腾讯云，将域名解析中原来CNAME中绑定的Github的网址换Coding的网址，等待10分钟，证书状态就显示正常。</li>
-<li>通过ping命令测试网速coding 和 Github 的网速：<br><img src="https://img-blog.csdnimg.cn/20200430235932913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
-<li>如上图，将Hexo绑定到Coding明显快于Github。</li>
-<li>到目前为止，有三个网址可以访问到我的个人博客：<br><a href="https://www.bernardo.fun">https://www.bernardo.fun</a><br><a href="https://bernardo1122.github.io" target="_blank" rel="noopener">https://bernardo1122.github.io</a> </li>
-</ul>
-<p><strong>疑问</strong>：点击此网址转到的链接还是 <a href="https://www.bernardo.fun">https://www.bernardo.fun</a> ？？？？？<br><a href="http://alxcue.coding-pages.com" target="_blank" rel="noopener">http://alxcue.coding-pages.com</a></p>
-<ul>
-<li>下篇继续更新搭建个人博客中遇到的问题，to be continued…….</li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>学习发布个人博客</title>
-    <url>/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<ul>
-<li>今天学习了一下如何搭建Hexo博客，以及如何写博客。<a id="more"></a></li>
-<li>Hexo在Git中下载，然后与GitHub关联。</li>
-<li>可以绑定自定义域名。</li>
-<li>最后研究一下如何写博客。</li>
-</ul>
-]]></content>
+    <title>剑指offer题解</title>
+    <url>/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>机器学习概述</title>
