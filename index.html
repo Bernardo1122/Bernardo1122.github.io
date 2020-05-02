@@ -1,700 +1,489 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="zh">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>bernardo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="bernardo">
+  <meta name="keywords" content="">
+  <meta name="description" content="code makes a better life!">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'hexo-theme-lx',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
 
-    
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
 
-    <title></title>
-    <meta name="author" content="bernardo">
-    
-    <meta name="description" content="code makes a better life!">
-    
-    
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-    
-    <meta property="og:site_name" content="bernardo"/>
-
-    
-    <meta property="og:image" content=""/>
-    
-
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="alternate" href="/atom.xml" title="bernardo" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/lib/materialize.min.css">
-    <link rel="stylesheet" href="/css/lib/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-
-    
-        <link rel="stylesheet" href="/css/lib/prettify-tomorrow-night-eighties.css" type="text/css">
-    
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 4.2.0"></head>
-
-
 <body>
-    <img src="/weixin_favicon.png" style="position: absolute; left: -9999px; opacity: 0; filter: alpha(opacity=0);">
+<div id="page">
 
-    <nav class="indigo">
-    <div class="nav-wrapper">
-        <a href="#" data-activates="main-menu" class="button-collapse">
-            <i class="fa fa-navicon"></i>
-        </a>
-        <div class="">
-            <a href="/" class="brand-logo hide-on-med-and-down">bernardo</a>
-            <ul class="right hide-on-med-and-down">
-                
-                    <li>
-                        <a class="menu-home " href="/" >
-                            <i class="fa fa-home "></i>
-                            
-                            首页
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-archive " href="/archives" >
-                            <i class="fa fa-archive "></i>
-                            
-                            归档
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                            <i class="fa fa-bookmark "></i>
-                            
-                            分类
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-reading " href="/reading" >
-                            <i class="fa fa-book "></i>
-                            
-                            读书
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-about " href="/about" >
-                            <i class="fa fa-user "></i>
-                            
-                            关于
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a class="menu-search modal-trigger " href="#search" >
-                            <i class="fa fa-search "></i>
-                            
-                            搜索
-                        </a>
-                    </li>
-                
-            </ul>
-            <div>
-    <ul class="side-nav indigo darken-1" id="main-menu">
-        
-
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-home " href="/" >
-                    <i class="fa fa-home "></i>
-                    
-                    首页
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-archive " href="/archives" >
-                    <i class="fa fa-archive "></i>
-                    
-                    归档
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-category category-menu" href="javascript:;" data-activates="category-menu" >
-                    <i class="fa fa-bookmark "></i>
-                    
-                    分类
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-reading " href="/reading" >
-                    <i class="fa fa-book "></i>
-                    
-                    读书
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-about " href="/about" >
-                    <i class="fa fa-user "></i>
-                    
-                    关于
-                </a>
-            </li>
-        
-            <li class="no-padding">
-                <a class="waves-effect menu-search modal-trigger " href="#search" >
-                    <i class="fa fa-search "></i>
-                    
-                    搜索
-                </a>
-            </li>
-        
-    </ul>
-
-    <ul class="side-nav indigo darken-1" id="category-menu">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/cover.jpeg)">
+  <div class="overlay">
+  <div class="featured">
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
+    <span>bernardo</span>
+    <h1>bernardo</h1>
     
-
-            
-
-    </ul>
+    
+  </div>
+  </div>
 </div>
 
-        </div>
-    </div>
-</nav>
+<div id="lx-main-content">
+  <div class="lx-post">
 
-<div id="search" class="modal search-modal">
-    <div class="row">
-        <div class="input-field col s12">
-              <input id="search-input" type="text">
-              <label for="search-input">搜索</label>
-        </div>
-
-    </div>
-    <div id="search-result" class="search-result col s12">
-
-    </div>
-</div>
-
-
-    <main>
-        
-
-
-
-<div id="article-list" class="container main-container">
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%88%E9%9D%A2%E8%AF%95%E9%87%8D%E7%82%B9%E9%83%A8%E5%88%86%EF%BC%89/">计算机网络与互联网知识点总结（四）（面试重点部分）</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-05-02T02:35:32.961Z"><a href="/2020/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%88%E9%9D%A2%E8%AF%95%E9%87%8D%E7%82%B9%E9%83%A8%E5%88%86%EF%BC%89/">2020-05-02</a></time>
-
-            
-
-
-            
-        </div>
-
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/">将 Hexo 博客部署到 Coding（码云）</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-05-01T11:22:30.979Z"><a href="/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/">2020-05-01</a></time>
-
-            
-
-
-            
-                <div class="entry pink-link-context">
-                    <ul>
-<li>由于Github的服务器在国外，所以将Hexo部署到Github上导致访问速度很慢，Coding是仿照Github的开源代码库，中文界面，访问速度也很快。
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2020/05/01/将 Hexo 博客部署到 Coding（码云）/">阅读全文</a>
-        </ div>
-        
-    </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/30/%E6%9B%B4%E6%94%B9%20Hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">更改 Hexo 博客主题</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-30T08:04:15.326Z"><a href="/2020/04/30/%E6%9B%B4%E6%94%B9%20Hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">2020-04-30</a></time>
-
-            
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>最近完成了以下工作：</p>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%88%E9%9D%A2%E8%AF%95%E9%87%8D%E7%82%B9%E9%83%A8%E5%88%86%EF%BC%89/">计算机网络与互联网知识点总结（四）（面试重点部分）</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-05-02</span>
+      <p><h1 id="第五章-运输层"><a href="#第五章-运输层" class="headerlink" title="第五章 运输层"></a>第五章 运输层</h1><h2 id="1、运输层协议概述"><a href="#1、运输层协议概述" class="headerlink" title="1、运输层协议概述"></a>1、运输层协议概述</h2><h3 id="1-1-进程之间的通信"><a href="#1-1-进程之间的通信" class="headerlink" title="1.1 进程之间的通信"></a>1.1 进程之间的通信</h3><ul>
+<li>运输层<strong>向上面的应用层提供通信服务</strong>，属于面向通信部分的最高层，同时也是用户功能中的最低层。<br><img src="https://img-blog.csdnimg.cn/20200413164540729.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+<li>两个主机进行通信，就是两个主机中的<strong>应用进程互相通信</strong>。从运输层看，<strong>通信的真正端点并不是主机，而是主机中的进程</strong>。<strong>端到端的通信</strong>是应用进程之间的通信。</li>
+<li>运输层的一个重要功能：<strong>复用</strong>和<strong>分用</strong>。</li>
+<li><strong>运输层提供应用进程间的逻辑通信</strong>。<strong>网络层为主机之间提供逻辑通信，运输层为应用进程之间提供端到端的逻辑通信</strong>。</li>
+<li>运输层要对收到的报文进行<strong>差错检测</strong>。网络IP数据报首部中的检测和字段，只检测首部是否出错，不检查数据部分。</li>
+<li>运输层的两种不同的运输协议：<strong>面向连接的TCP</strong>和<strong>无连接的UDP</strong>。</li>
+<li>运输层采用<strong>面向连接的TCP协议时，尽管下面的网络是不可靠的</strong>，逻辑通信就相当于<strong>一条全双工的可靠信道</strong>。</li>
+<li>当运输层采用<strong>无连接的UDP协议</strong>时，这种逻辑同喜仍然是一条不可靠的信道。<h3 id="1-2-运输层的两个主要协议"><a href="#1-2-运输层的两个主要协议" class="headerlink" title="1.2 运输层的两个主要协议"></a>1.2 运输层的两个主要协议</h3></li>
+<li><strong>用户数据报协议UDP（User Datagram Protocol）</strong>。</li>
+<li><strong>传输控制协议TCP（Transmission Control Protocol）</strong>。</li>
+<li>两个对等运输实体在通信时传送的数据单位叫做<strong>运输协议数据单元TPDU</strong>。分为：<strong>TCP报文段</strong>，<strong>UDP报文段</strong>。</li>
+<li>UDP在传送数据之前<strong>不需要先建立连接</strong>。</li>
+<li>TCP提供<strong>面向连接的服务</strong>。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200413173410149.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="1-3-运输层的端口"><a href="#1-3-运输层的端口" class="headerlink" title="1.3 运输层的端口"></a>1.3 运输层的端口</h3><ul>
+<li>在运输层时候<strong>协议端口号</strong>，简称为<strong>端口</strong>。虽然通信的终点是应用进程，我们只要把要传送的报文交到目的主机的某一个合适的目的端口，剩下的工作（最后交付的进程）就由TCP来完成。</li>
+<li>这种 <strong>在协议栈层间的抽象的协议端口是软件端口</strong>，区分于路由器和交换机上的硬件端口。硬件端口是<strong>不同硬件设备</strong>进行交互的接口，而<strong>软件端口是应用层的各种协议进程与运输实体进行层间交互的一种地址</strong>。</li>
+<li>UDP和TCP的首部格式中，有<strong>源端口</strong>和<strong>目的端口</strong>。TCP/IP运输层有16位<strong>端口号</strong>来标志一个端口，<strong>端口号只具有本地意义</strong>，16位的端口号可允许有65 535个不同的端口号，足够用。</li>
+<li>因特网上计算机通信采用客户-服务器方式。客户在发起通信请求时，必须先知道对方服务器的IP地址和端口号。</li>
+<li>运输层的端口号分两大类：（1）<strong>服务器端使用的端口号</strong>分两类：最重要是：<strong>熟知端口号</strong>或<strong>系统端口号</strong>，0~1023。另一类是：<strong>登记端口号</strong>，1024~49151。（2）<strong>客户端使用的端口号</strong>，49152~65535。又叫<strong>短暂端口号</strong>。<h2 id="2、用户数据报协议UDP"><a href="#2、用户数据报协议UDP" class="headerlink" title="2、用户数据报协议UDP"></a>2、用户数据报协议UDP</h2><h3 id="2-1-UDP概述"><a href="#2-1-UDP概述" class="headerlink" title="2.1 UDP概述"></a>2.1 UDP概述</h3></li>
+<li>只是在IP数据报上增加了复用、分用、差错检验功能。</li>
+<li>主要特点：（1）<strong>无连接</strong>。减少开销和数据延迟。（2）使用<strong>最大努力交付</strong>，不保证可靠交付。（3）<strong>面向报文的</strong>。应用层交给UDP多长的报文，UDP照样发送，一次交付完整报文。（4）<strong>没有拥塞控制</strong>。网络出现拥塞不会使降低源主机发送速率。（5）<strong>支持一对一、一对多、多对一、多对多的交互通信</strong>。（6）<strong>首部开销小</strong>。比TCP小。</li>
+</ul>
+<h3 id="2-2-UDP的首部格式"><a href="#2-2-UDP的首部格式" class="headerlink" title="2.2 UDP的首部格式"></a>2.2 UDP的首部格式</h3><ul>
+<li><p>UDP有两个字段：<strong>数据字段</strong>和<strong>首部字段</strong>（8字节）。<br><img src="https://img-blog.csdnimg.cn/20200413182703910.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>（1）<strong>源端口</strong> 需要对方回信时选用，不需要全0.</p>
+</li>
+<li><p>（2）<strong>目的端口</strong> 交付时必须用到。</p>
+</li>
+<li><p>（3）<strong>长度</strong> 最小值是8。</p>
+</li>
+<li><p>（4）<strong>检验和</strong> 检验是否有错。</p>
+</li>
+<li><p>UDP的检验和是将<strong>首部和数据部分一起都检验</strong>。</p>
+</li>
+</ul>
+<h2 id="3、传输控制协议TCP"><a href="#3、传输控制协议TCP" class="headerlink" title="3、传输控制协议TCP"></a>3、传输控制协议TCP</h2><h3 id="3-1-TCP主要特点"><a href="#3-1-TCP主要特点" class="headerlink" title="3.1 TCP主要特点"></a>3.1 TCP主要特点</h3><ul>
+<li><p>（1）TCP是<strong>面向连接的运输层协议</strong>。好像是打电话：通话前拨号，通话后挂机。</p>
+</li>
+<li><p>（2）每一条TCP连接只能有两个<strong>端点</strong>，每一条TCP连接只能是<strong>点对点的</strong>。</p>
+</li>
+<li><p>（3）TCP提供<strong>可靠交付</strong>的服务。无差错、不丢失、不重复、按序到达。</p>
+</li>
+<li><p>（4）TCP提供<strong>全双工通信</strong>。任何时候都能发送数据，两端设有缓存。</p>
+</li>
+<li><p>（5）<strong>面向字节流</strong>。TCP中的“流”是指<strong>流入到进程或从进程流出的字节序列</strong>。<br><img src="https://img-blog.csdnimg.cn/20200413221842628.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>上图，TCP连接是逻辑连接，将报文传到IP层，加上IP首部后，传入到数据链路层。再加上数据链路层首部和尾部后，发送到物理层。</p>
+</li>
+</ul>
+<h3 id="3-2-TCP的连接"><a href="#3-2-TCP的连接" class="headerlink" title="3.2 TCP的连接"></a>3.2 TCP的连接</h3><ul>
+<li>TCP把连接作为最基本的抽象。TCP连接的端点叫做<strong>套接字</strong>或<strong>插口</strong>。端口号 <strong>拼接到</strong> IP地址即构成了套接字。</li>
+<li>$套接字 cocket=(IP地址:端口号)$</li>
+<li><strong>每一条TCP连接唯一地被通信两端的两个端点所确定</strong>。</li>
+<li>$TCP连接::={socket_1,socket_2}={(IP_1:port_1),(IP_2,port_2)}$</li>
+<li>这里的$IP_1$和$IP_2$分别是两个端点主机的$IP$地址，而$port_1$和$port_2$分别是两个端点主机中的端口号。TCP连接的两个套接字就是$socket_1$和$socket_2$。</li>
+<li>socket <strong>表示多个不同的概念：</strong>（1）允许应用程序访问连网协议的<strong>应用编程接口API</strong>。即应用层和运输层之间的接口。（2）在socket API中的一个函数名。（3）调用socket函数的端点称为socket。（4）调用socket函数，返回值称为socket描述。（5）操作系统内核中联网协议Berkeley实现称为socket实现。<h2 id="4、可靠传输的工作原理"><a href="#4、可靠传输的工作原理" class="headerlink" title="4、可靠传输的工作原理"></a>4、可靠传输的工作原理</h2></li>
+<li>理想传输条件两点：（1）传输信道不产生差错。（2）接收方来得及处理对方任何速度发送的数据。</li>
+</ul>
+<h3 id="4-1-停止等待协议"><a href="#4-1-停止等待协议" class="headerlink" title="4.1 停止等待协议"></a>4.1 停止等待协议</h3><ul>
+<li>下面仅讨论A发送数据，B接收数据并确认的情况。A是<strong>发送方</strong>，B是<strong>接收方</strong>。</li>
+</ul>
+<h4 id="1-无差错情况"><a href="#1-无差错情况" class="headerlink" title="1. 无差错情况"></a>1. 无差错情况</h4><ul>
+<li>停止等待协议，（a）无差错情况。<br><img src="https://img-blog.csdnimg.cn/20200413223946513.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"><h4 id="2-出现差错"><a href="#2-出现差错" class="headerlink" title="2. 出现差错"></a>2. 出现差错</h4></li>
+<li>上图（b）A进行<strong>超时重传</strong>，得有<strong>超时计时器</strong>。</li>
+<li>注意三点：（1）A在发完分组后，<strong>必须保留已发送的分组的副本</strong>。（2）分组和确认分组都必须进行<strong>编号</strong>，才能保证哪一个收到确认。（3）超时计时器设置的重传时间<strong>应当比数据在分组传输的平均往返时间更长一些</strong>。</li>
+</ul>
+<h4 id="3-确认丢失和确认迟到"><a href="#3-确认丢失和确认迟到" class="headerlink" title="3. 确认丢失和确认迟到"></a>3. 确认丢失和确认迟到</h4><ul>
+<li><p>假设B对A发送的对M1的确认 丢失了，A在超时重传时间内没收到确认，需要重传M1，B又收到了重传分组M1，应采取两个行动。<br><img src="https://img-blog.csdnimg.cn/20200413224554439.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>（1）<strong>丢弃这个重复的分组M1</strong>，不向上交付。</p>
+</li>
+<li><p>（2）向A发送确认。</p>
+</li>
+<li><p>这样就实现了<strong>在不可靠的传输网络上实现可靠的通信</strong>。</p>
+</li>
+<li><p>上述可靠的传输协议常称为<strong>自动重传请求ARQ</strong>。</p>
+</li>
+</ul>
+<h4 id="4-信道利用率"><a href="#4-信道利用率" class="headerlink" title="4.信道利用率"></a>4.信道利用率</h4><ul>
+<li><p>停止等待的优点是简单，缺点是信道利用率太低。<br><img src="https://img-blog.csdnimg.cn/20200413230329850.jpg#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>信道利用率：$U=\frac{T_D}{T_D+RTT+T_A}$.</p>
+</li>
+<li><p>采用流水线传输，提高信道利用率：<br><img src="https://img-blog.csdnimg.cn/20200413230731339.jpg#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>使用流水线传输，就要使用<strong>连续ARQ协议</strong>和<strong>滑动窗口协议</strong>。</p>
+</li>
+</ul>
+<h3 id="4-2-连续ARQ协议"><a href="#4-2-连续ARQ协议" class="headerlink" title="4.2 连续ARQ协议"></a>4.2 连续ARQ协议</h3><p><img src="https://img-blog.csdnimg.cn/20200413231043949.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
 <ul>
-<li>搭建 Hexo 博客。
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2020/04/30/更改 Hexo 博客主题/">阅读全文</a>
-        </ div>
-        
+<li>接收方使用<strong>累计确认</strong>的方式，收到几个分组后，对<strong>按序到达的最后一个分组发送确认</strong>。</li>
+<li>优点：容易实现。缺点：不能向发送方反映出接收方已经正确收到的的信息。叫做Go-back-N。</li>
+</ul>
+<h2 id="5、TCP报文段的首部格式"><a href="#5、TCP报文段的首部格式" class="headerlink" title="5、TCP报文段的首部格式"></a>5、TCP报文段的首部格式</h2><p><img src="https://img-blog.csdnimg.cn/20200413231611356.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>（1）<strong>源端口</strong>和<strong>目的端口</strong> 各占2字节。</li>
+<li>（2）<strong>序号</strong> 占 4字节。共$2^{32}$个序号。序号增加到最大后，变成0。TCP连接中传送的字节流中的<strong>每一个字节都按顺序编号</strong>。</li>
+<li>（3）<strong>确认号</strong> 占4字节。是<strong>期望收到对方下一个报文段的第一个数据字节的序号</strong>。</li>
+<li><strong>若确认号=N，表明：到序号N-1为止的所有数据都已经正确收到</strong>。</li>
+<li>（5）<strong>数据偏移</strong> 占4位，TCP报文段的数据起始点距离TCP报文段的起始处有多远。即TCP首部最大长度不超过60字节。</li>
+<li>（6）<strong>保留</strong>。 占 6 位。</li>
+<li>（7）<strong>紧急URG</strong> URG=1，报文中有紧急数据，尽快传送。（Ctrl + C就是紧急命令）。紧急指针。</li>
+<li>（8）<strong>确认ACK</strong> 连接时， ACK=1。</li>
+<li>（9）<strong>推送PSH</strong>  PSH=1，将报文尽快地交付接收应用进程。</li>
+<li>（10）<strong>复位RST</strong> RST=1，TCP连接出现严重差错。</li>
+<li>（11）<strong>同步SYN</strong> 。</li>
+<li>（12）<strong>终止FIN</strong> FIN=1，释放运输连接。</li>
+<li>（13）<strong>窗口</strong> 占2字节。是发送本报文段的一方的<strong>接收窗口</strong>。作为接受方让发送方设置其发送窗口的依据。</li>
+<li>（14）<strong>检验和</strong> 占2字节。 在TCP报文前加12字节的伪首部。</li>
+<li>（15）<strong>紧急指针</strong> 2字节。</li>
+<li>（16）<strong>选项</strong> 长度可变 最长是 40字节。</li>
+</ul>
+<h2 id="6、TCP可靠传输的实现"><a href="#6、TCP可靠传输的实现" class="headerlink" title="6、TCP可靠传输的实现"></a>6、TCP可靠传输的实现</h2><ul>
+<li><p>先介绍已字节为单位的滑动窗口，假定<strong>数据传输只在一个方向进行</strong>。即只有发送方A的发送窗口和接收方B的接收窗口。</p>
+<h3 id="6-1-以字节为单位的滑动窗口"><a href="#6-1-以字节为单位的滑动窗口" class="headerlink" title="6.1 以字节为单位的滑动窗口"></a>6.1 以字节为单位的滑动窗口</h3></li>
+<li><p>下图，A收到了B发来的确认报文段，窗口号是20字节，确认号是31（表明B期望收到的下一个序列号是31，序列号30为止的数据已经收到了）。<br><img src="https://img-blog.csdnimg.cn/20200414154207610.jpg#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>发送方A的发送窗口：在没收到B的确认情况下，A可以连续发出窗口的数据。凡是发出去的数据，在没有收到B的确认下，暂时保留。</p>
+</li>
+<li><p>发送窗口里面的序号表示允许发送的序号。窗口越大，发送方可以在收到对方确认之前连续发送更多的数据，获得更高的效率。</p>
+</li>
+<li><p>发送窗口后沿的后面部分表示已经发送且接收到了确认。前沿的前面部分表示不允许发送的，因为接收方没有为这部分数据存放缓存空间。</p>
+</li>
+<li><p>窗口后沿变化有两种情况：不动（没有收到新的确认）和前移（收到新的确认）。窗口后沿不会后移，窗口前沿可能<strong>向后收缩</strong>，TCP强烈不赞成这样做。</p>
+</li>
+<li><p>下图，A发送了序号31~41的数据，需要三个指针：$P_1,P_2,P_3$。</p>
+</li>
+<li><p>B只能对按序收到的数据中的最高序号给出确认，因此B发送的确认报文段的确认号仍然是31，不是32或者是33。<br><img src="https://img-blog.csdnimg.cn/20200414160838987.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>B收到了序号31的数据，并把31~33数据交付主机，并删除，将窗口向前移动3个序号，同时给A发送确认，窗口值仍为20，确认号是34。此时A的窗口可以增大。<br><img src="https://img-blog.csdnimg.cn/20200414162148818.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>$P_2$指针向前移动和$P_3$重合。A的发送窗口已满，停止发送。存在以下可能：所有数据已达到B，B发出了确认。但是确认没有到达A，A经过一段时间就会重传，知道B确认为止。如果A收到B的确认，则继续发送。<br><img src="https://img-blog.csdnimg.cn/20200414162458101.jpg#pic_center" alt="在这里插入图片描述"></p>
+</li>
+</ul>
+<ul>
+<li><p>TCP缓存和窗口的关系，下图：</p>
+</li>
+<li><p>声明两点：（1）缓存空间和序列号都是有限的，循环使用。（2）实际上缓存非常大，无法标注清楚。</p>
+</li>
+<li><p>发送缓存用来暂时存放：（1）发送应用程序传送给发送方TCP准备发送的数据；（2）TCP已发送出但尚未收到确认的数据。</p>
+</li>
+<li><p>接收缓存用来存放：（1）按序到达的、但尚未被接收应用程序读取的数据。（2）为按序到达的数据。<br><img src="https://img-blog.csdnimg.cn/20200414163048867.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+</li>
+<li><p>强调三点：（1）A窗口并不一定和B窗口一样大，A可能根据网络拥塞情况调整。（2）不按序到达的数据处理，TCP没有明确规定，一般先放到接收窗口中，等到字节流中缺少的字节收到后，再<strong>按序交付上层的应用进程</strong>。（3）TCP要求接收方必须有积累确认的功能，可以减小开销。</p>
+</li>
+</ul>
+<h3 id="6-2-超时重传时间的选择"><a href="#6-2-超时重传时间的选择" class="headerlink" title="6.2 超时重传时间的选择"></a>6.2 超时重传时间的选择</h3><ul>
+<li>设置重传时间是个复杂的事。</li>
+<li>采用自适应算法，记录一个报文段发出的时间和收到相应的确认的时间。两个时间差就是<strong>报文段的往返时间RTT</strong>。TCP保留了RTT的<strong>加权平均往返时间$RTT_S$</strong>。</li>
+<li>$新的TRR_S=(1-\alpha)\times\alpha(新的RTT样本)$</li>
+<li>超时计时器设置的<strong>超时重传时间RTO</strong>应略大于加权平均往返时间。</li>
+<li>$RTO=TRR_S+4\times RTT_D$。$RTT_D$是RTT的<strong>偏差</strong>的加权平均值。</li>
+<li>$新的RTT_D=(1-\beta)\times(旧的RTT_D)+\beta\times|RTT_S-新的RTT样本|$。</li>
+<li>重传报文后，收到报文确认，<strong>如何判断是对发送报文段的确认还是对后来重传报文段的确认</strong>？</li>
+<li>为此，Karn提出一个算法：<strong>在计算加权平均$RTT_S$时，只要报文段重传了，就不采用其往返时间的样本。这样得出的加权平均$RTT_S$和RTO就比较准确</strong>。</li>
+<li>改进方法：报文段每重传一次，就把超时重传时间RTO增大一些。</li>
+</ul>
+<h3 id="6-3-选择确认SACK"><a href="#6-3-选择确认SACK" class="headerlink" title="6.3 选择确认SACK"></a>6.3 选择确认SACK</h3><ul>
+<li>一个问题：收到的报文段无差错，只是未按序号，中间缺少一些序号数据，能否只传送缺少的数据？使用<strong>选择确认</strong>。</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20200414183557774.jpg#pic_center" alt="在这里插入图片描述"></p>
+<ul>
+<li>如果要使用选择确认SACK，建立TCP连接时，就要在TCP首部的选项中加上“允许SACK”选项。</li>
+</ul>
+<h2 id="7、TCP的流量控制"><a href="#7、TCP的流量控制" class="headerlink" title="7、TCP的流量控制"></a>7、TCP的流量控制</h2><h3 id="7-1-利用滑动窗口实现流量控制"><a href="#7-1-利用滑动窗口实现流量控制" class="headerlink" title="7.1 利用滑动窗口实现流量控制"></a>7.1 利用滑动窗口实现流量控制</h3><ul>
+<li><p><strong>流量控制</strong>就是让<strong>发送方的发送速率不要太快，要让接收方来得及接收</strong>。</p>
+</li>
+<li><p>利用滑动窗口机制可以很方便地在TCP连接上实现对发送方的流量控制。</p>
+</li>
+<li><p>通过下图，说明如何利用滑动窗口机制进行流量控制：</p>
+</li>
+<li><p>设A向B发送数据。B告诉A：“我的接收窗口rwnd = 400”（rwnd是接收窗口）。因此，<strong>发送方的发送窗口不能超过接收方给出的接收窗口的数值</strong>。TCP的<strong>窗口单位是字节，不是报文段</strong>。设每一个报文段为100字节长，数据报文段序号的初始值设为1（seq = 1）。图中，大写ACK表示首部的确认位ACK，小写ack表示确认字段的值。</p>
+</li>
+<li><p>接收方B进行了三次流量控制。第一次将窗口减少rwnd = 300，第二次rwnd = 200，第三次rwnd = 100，最后减少至0。</p>
+</li>
+<li><p>B向A发送了零窗口的报文段后不久，B的接收缓存又有了一些新的存储空间。于是B向A发送了rwnd = 400的报文段。如果这个报文段在传输的过程中丢失了，A一直等待B的通知，B也一直等待A发送的数据，是死锁。</p>
+</li>
+<li><p>为解决这个问题，TCP为每一个连接设有一个<strong>持续计时器</strong>。只要TCP一方收到对方的零窗口通知，就启动持续计时器。时间到，就发送一个零窗口<strong>探测报文段（禁携带一个字节数据）</strong>，对方就在确认这个探测报文段时给出了现在的窗口值。如果窗口还是零，重置持续计时器，直到窗口不是零，死锁僵局打破。<br><img src="https://img-blog.csdnimg.cn/20200416162103946.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></p>
+<h3 id="7-2-必须考虑传输效率"><a href="#7-2-必须考虑传输效率" class="headerlink" title="7.2 必须考虑传输效率"></a>7.2 必须考虑传输效率</h3></li>
+<li><p>应用进程将数据传送到TCP的发送缓存，剩下的发送任务就是由TCP来控制。可以使用不同的机制来控制TCP报文段的发送时机。</p>
+</li>
+<li><p>第一种机制是TCP维护一个变量，等于<strong>最大报文段长度MSS</strong>。是要缓存中存放的数据达到MSS字节，组装成TCP发送。</p>
+</li>
+<li><p>第二种机制是由发送方的应用进程指明要求发送报文段，即TCP支持的<strong>推送</strong>操作。</p>
+</li>
+<li><p>第三种机制是发送方的一个计时器期限到了，这时就把当前已有的缓存数据装入报文段（长度不超过MSS）发送。</p>
+</li>
+<li><p>如何控制TCP报文的发送时机，是一个复杂的问题，使用Nagle算法：将第一个数据字节发送过去，其余缓存，收到确认，再发送其余数据发送。当数据达到已发送窗口一般或者达到报文段的最大长度，立即发送报文段。</p>
+</li>
+<li><p><strong>糊涂窗口综合症</strong>：接收方不要再缓存刚刚有了一点的小空间就急忙把这个很小的窗口大小信息通知给发送方。</p>
+<h2 id="8、TCP的拥塞控制"><a href="#8、TCP的拥塞控制" class="headerlink" title="8、TCP的拥塞控制"></a>8、TCP的拥塞控制</h2><h3 id="8-1-拥塞控制的一般原理"><a href="#8-1-拥塞控制的一般原理" class="headerlink" title="8.1 拥塞控制的一般原理"></a>8.1 拥塞控制的一般原理</h3></li>
+<li><p>计算机网络的链路容量（带宽）、交换结点缓存、处理机，是网络的资源。网络某一资源需求超过了该资源所能提供的可用部分，就是<strong>拥塞</strong>。</p>
+</li>
+<li><p>$\sum对资源的需求&gt;可用资源$</p>
+</li>
+<li><p><strong>拥塞控制</strong>就是<strong>防止过多的数据注入网络中，这样可以使网络中的路由器或链路不至过载</strong>。拥塞控制是一个<strong>全局性过程</strong>。</p>
+</li>
+<li><p><strong>流量控制是指点对点通信量的控制</strong>，是个<strong>端到端</strong>的问题。</p>
+</li>
+<li><p>拥塞控制是一个<strong>动态的问题</strong>。</p>
+</li>
+</ul>
+<h3 id="8-2-几种拥塞控制方法"><a href="#8-2-几种拥塞控制方法" class="headerlink" title="8.2 几种拥塞控制方法"></a>8.2 几种拥塞控制方法</h3><ul>
+<li>四种方法：<strong>慢开始、拥塞避免、快重传、快恢复</strong>。</li>
+<li>（具体内容暂时不写）</li>
+</ul>
+<h2 id="9、TCP的运输连接管理（面试重点）"><a href="#9、TCP的运输连接管理（面试重点）" class="headerlink" title="9、TCP的运输连接管理（面试重点）"></a>9、TCP的运输连接管理（<font color=red>面试重点</font>）</h2><ul>
+<li>运输连接有三阶段：<strong>连接建立、数据传送、连接释放</strong>。</li>
+<li>TCP连接过程要解决三个问题：（1）要使每一方都知道对方的存在。（2）要允许双方写上一些参数。（3）能够对运输实体资源进行分配。</li>
+<li>TCP连接的建立采用<strong>客户服务器</strong>方式。主动发起连接建立的应用进程叫做<strong>客户（client）</strong>，被动等待连接建立的应用进程叫做<strong>服务器（server）</strong>。</li>
+</ul>
+<h3 id="9-1-TCP的连接建立（重点）"><a href="#9-1-TCP的连接建立（重点）" class="headerlink" title="9.1 TCP的连接建立（重点）"></a>9.1 TCP的连接建立（<font color=red><strong>重点</strong></font>）</h3><ul>
+<li>下图是建立连接的过程。假定主机A运行的是TCP客户程序，B运行TCP服务器程序。最初两端的TCP进程处于CLOSED状态。<strong>A主动打开连接，B被动被打开连接</strong>。</li>
+<li>B的TCP服务器进程先创建<strong>传输控制块</strong> TCB，准备接受客户进程的连接请求。然后服务器处于LISTEN（收听）状态。如有客户连接，作出响应。</li>
+<li>A的TCP客户进程也是首先创建<strong>传输控制模块TCB</strong>，然后向B发出连接请求报文，这时首部中的同步位SYN = 1，同时选择一个初始序号seq = x。TCP规定，SYN报文段（即SYN = 1的报文段）不能携带数据，但要<strong>消耗掉一个序号</strong>。这时，TCP客户进程进入SYN-SENT（同步已发送）状态。</li>
+<li>B接收到请求报文后，如同意建立连接，向A确认。在确认报文段中应把SYN位和ACK位置1，确认号是ack = x + 1，同时选择初始序号seq = y。这个报文段也不携带数据，<strong>消耗掉一个序号</strong>。TCP服务器进程进入SYN-RCVD（同步收到）状态。</li>
+<li>TCP客户进程收到B的确认后，还要向B给出确认。确认报文段的ACK置1，确认号ack = y + 1，自己的序号seq = x + 1。TCP标准规定，ACK报文可以携带数据。但<strong>如果不带数据则不消耗序号</strong>，这种情况下，下一个数据报文段的序号仍是seq = x + 1。这时TCP连接已经建立，A进入ESTABLISHED状态。</li>
+<li>B收到A的确认后，也进入ESTABLISHED状态。<br><img src="https://img-blog.csdnimg.cn/20200416181724839.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>上面给出的连接建立的过程叫做<strong>三次握手</strong>。</li>
+<li>A还要发送一次确认，主要为了防止已失效的连接请求报文段突然又传送到了B。</li>
+<li>已失效的连接请求报文段的理解：A发出连接请求报文丢失未收到确认，于是A再次发送收到了确认，建立连接。A发送了两次连接请求。假设第一次没丢失，延误时间又到达了B那里，B又发出了确认，又建立了新的连接。但是A并没有建立请求，所以B一直在等待，浪费了资源。</li>
+<li>采用三次握手的方法就可以防止上述事情发生：上述情况，A不会向B的确认发出确认，B收不到确认，就知道A并没有要求建立连接。</li>
+</ul>
+<h3 id="9-2-TCP的连接释放（重点）"><a href="#9-2-TCP的连接释放（重点）" class="headerlink" title="9.2 TCP的连接释放（重点）"></a>9.2 TCP的连接释放（<font color=red><strong>重点</strong></font>）</h3><ul>
+<li>数据传输结束后，通信双方都可以释放连接。现在A和B都处于ESTABLISHED状态。</li>
+<li>A的应用进程先向其TCP发出连接释放报文段，并停止再发出数据，主动关闭TCP连接。将A的连接释放报文段首部的终止控制位FIN置1，其序号seq = u，等于前面已传送过的数据的最后一个字节的序号加1。这时A进入FIN-WAIT-1（终止等待1）状态，等待B的确认，TCP规定，FIN报文段即使不携带数据，也消耗一个序号。</li>
+<li>B收到连接释放报文段后即发出确认，确认号是ack = u + 1，而这个报文段自己的序号是v，等于B前面已传送过的数据的最后一个字节的序号加1。B进入CLOSED-WAIT（关闭等待）状态。</li>
+<li>A到B这个方向的连接就释放了，TCP连接处于<strong>半关闭</strong>状态，即A没有数据要发送，B有数据发送，A还要接收，B到A的连接状态没有关闭。</li>
+<li>A收到来自B的确认后，就进入FIN-WAIT-2（终止等待状态2），等待B发出的连接释放报文段。</li>
+<li>若B已经没有要向A发送的数据，应用进程就通知TCP释放连接。这时B发出的连接释放报文段必须使FIN = 1。现假定B的序号为w（在半关闭的状态下B可能又发送了一些数据）。B还必须重复上次已发送过的确认号ack = u + 1。这时B就进入LAST-ACK（最后确认）状态，等待A的确认。</li>
+<li>A收到B的连接释放报文段后，必须对此发出确认。在确认报文段中把ACK置1，确认号ack = w + 1，而自己的序号是seq = u + 1（前面发送过的FIN报文段要消耗一个序号）。然后进入到TIME-WAIT（时间等待）状态。但现在TCP的连接还没有释放掉。必须经过<strong>时间等待计时器</strong>设置的时间2MSL后，A才进入CLOSED状态。时间MSL叫做<strong>最长报文段寿命</strong>。当A撤销相应的传输控制块TCB后，就结束了这次TCP连接。<br><img src="https://img-blog.csdnimg.cn/20200416213330832.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+<ul>
+<li>（<font color=red><strong>重点</strong></font>）为什么A在TIME-WAIT状态必须等2MSL？两个理由：</li>
+<li>（1）保证A发送的最后一个ACK报文段能够到达B。如果ACK报文段丢失使得B一直处于LAST-ACK状态，B会重传FIN+ACK报文段，而A就能在2MSL时间内收到这个重传的FIN+ACK报文段。最后A和B进入CLOSED状态。如果A在TIME-WAIT不等待一段时间，而在发送完ACK报文段后立即释放连接，则无法收到B重传的FIN + ACK报文段，B无法进入CLOSED。</li>
+<li>（2）为防止“已失效的连接请求报文段”出现在本连接中。A在发送完最后一个ACK报文段后，再经过时间2MSL，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。使得下一次新的连接中不会出现这种旧的连接请求报文段。</li>
+<li>只要B收到A发送的确认，就进入CLOSED状态。B在撤销相应的传输控制块TCB后，结束了TCP连接。B结束TCP要早于A一些。</li>
+<li>上述过程称为TCP释放过程是<strong>四次握手</strong>。</li>
+<li>（<font color=red><strong>重点</strong></font>）除了时间等待计时器外，TCP还设置一个<strong>保活计时器</strong>：客户已经主动与服务器建立了TCP连接。后来客户端主机出现问题。服务器每收到一次客户的数据，就重新设置保活计时器，通常2个小时。2小时收不到客户的响应，服务器就发送一个探测报文段，以后每隔75分钟发送一次，一天内1次仍无客户响应，服务器认为客户端出现故障，关闭连接。</li>
+</ul>
+<h2 id="9-3-TCP的有限状态机"><a href="#9-3-TCP的有限状态机" class="headerlink" title="9.3 TCP的有限状态机"></a>9.3 TCP的有限状态机</h2><ul>
+<li>2018年去首师大考研调剂，老师问的问题，至今才发现，原来是计网上的知识点。</li>
+<li>下图，粗实线箭头表示对客户进程的正常变迁。组虚线箭头表示对服务器进程的正常变迁。细线箭头表示异常变迁。<br><img src="https://img-blog.csdnimg.cn/20200416223829397.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2J3cWlhbmc=,size_16,color_FFFFFF,t_70#pic_center" alt="在这里插入图片描述"></li>
+</ul>
+</p>
+      <div class="post-button"><a class="btn" href="/2020/05/02/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93%EF%BC%88%E5%9B%9B%EF%BC%89%EF%BC%88%E9%9D%A2%E8%AF%95%E9%87%8D%E7%82%B9%E9%83%A8%E5%88%86%EF%BC%89/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">发布 Hexo 博客遇到的一些问题</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-29T14:40:01.230Z"><a href="/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">2020-04-29</a></time>
-
-            
-
-
-            
-                <div class="entry pink-link-context">
-                    <ol>
-<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2020/04/29/发布 Hexo 博客遇到的一些问题/">阅读全文</a>
-        </ div>
-        
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/">将 Hexo 博客部署到 Coding（码云）</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-05-01</span>
+      <p><ul>
+<li>由于Github的服务器在国外，所以将Hexo部署到Github上导致访问速度很慢，Coding是仿照Github的开源代码库，中文界面，访问速度也很快。</p>
+      <div class="post-button"><a class="btn" href="/2020/05/01/%E5%B0%86%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0%20Coding%EF%BC%88%E7%A0%81%E4%BA%91%EF%BC%89/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">学习发布个人博客</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-29T10:59:03.089Z"><a href="/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">2020-04-29</a></time>
-
-            
-
-
-            
-                <div class="entry pink-link-context">
-                    <ul>
-<li>今天学习了一下如何搭建Hexo博客，以及如何写博客。
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2020/04/29/学习发布个人博客/">阅读全文</a>
-        </ div>
-        
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/30/%E6%9B%B4%E6%94%B9%20Hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/">更改 Hexo 博客主题</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-30</span>
+      <p><p>最近完成了以下工作：</p>
+<ul>
+<li>搭建 Hexo 博客。</p>
+      <div class="post-button"><a class="btn" href="/2020/04/30/%E6%9B%B4%E6%94%B9%20Hexo%20%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/">剑指offer题解</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-29T10:46:40.000Z"><a href="/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/">2020-04-29</a></time>
-
-            
-
-
-            
-        </div>
-
-        
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">发布 Hexo 博客遇到的一些问题</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-29</span>
+      <p><ol>
+<li>每次更新博客后，显示 404 错误。<br>使用<code>www.bernardo.fun</code>作为博客个人域名后，每次更新一个博客，点击网站，均显示 404 错误，如下图：</p>
+      <div class="post-button"><a class="btn" href="/2020/04/29/%E5%8F%91%E5%B8%83%20Hexo%20%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/29/LeetCode/">LeetCode</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-29T09:37:31.000Z"><a href="/2020/04/29/LeetCode/">2020-04-29</a></time>
-
-            
-
-
-            
-        </div>
-
-        
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">学习发布个人博客</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-29</span>
+      <p><ul>
+<li>今天学习了一下如何搭建Hexo博客，以及如何写博客。</p>
+      <div class="post-button"><a class="btn" href="/2020/04/29/%E5%AD%A6%E4%B9%A0%E5%8F%91%E5%B8%83%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-        <article class="simple-article">
-    <div class="card">
-        <div class="card-content">
-            <div class="article-title">
-                
-    
-        <h1 class="indigo-link-context"><a href="/2020/04/28/hello-world/">Hello World</a></h1>
-    
-
-
-            </div>
-
-            <time class="pink-link-context" datetime="2020-04-28T09:08:49.891Z"><a href="/2020/04/28/hello-world/">2020-04-28</a></time>
-
-            
-
-
-            
-                <div class="entry pink-link-context">
-                    <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-                </div>
-            
-        </div>
-
-        
-        <div class="card-action pink-link-context">
-            <a href="/2020/04/28/hello-world/">阅读全文</a>
-        </ div>
-        
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/">剑指offer题解</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-29</span>
+      <p></p>
+      <div class="post-button"><a class="btn" href="/2020/04/29/%E5%89%91%E6%8C%87offer%E9%A2%98%E8%A7%A3/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
     </div>
-</article>
-
-    
-
-    <ul class="pagination center-align">
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-left"></i></a>
-    </li>
-    
-    
-        <li class="active pink"><a href="/">1</a></li>
-    
-    
-    <li class="disabled">
-        <a href="/"><i class="fa fa-angle-right"></i></a>
-    </li>
- </ul>
-
-</div>
-
-        <div class="fixed-action-btn float-sitemap">
-    <a class="btn-floating btn-large pink">
-      <i class="fa fa-caret-square-o-up"></i>
-    </a>
-    <ul>
-      <li><a class="btn-return-top btn-floating waves-effect green" title="回到顶部"><i class="fa fa-arrow-circle-o-up"></i></a></li>
-      <li><a class="btn-floating waves-effect button-collapse yellow darken-1"  data-activates="main-menu" title="菜单"><i class="fa fa-navicon"></i></a></li>
-    </ul>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/29/LeetCode/">LeetCode</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-29</span>
+      <p></p>
+      <div class="post-button"><a class="btn" href="/2020/04/29/LeetCode/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
+  </div>
+  <div class="lx-entry padding">
+    <div>
+      <h2 class="title"><a href="/2020/04/28/hello-world/">Hello World</a></h2>
+      <span class="lx-post-detail"><i class="fa fa-calendar-o"></i> 2020-04-28</span>
+      <p><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p></p>
+      <div class="post-button"><a class="btn" href="/2020/04/28/hello-world/" rel="noopener"><i class="fa fa-angle-double-right fa-fw"></i>Read More</a></div>
+    </div>
   </div>
 
-    </main>
-    <footer class="page-footer indigo darken-1">
-    
 
-    <div class="footer-copyright pink-link-context">
-        <div class="container">
-            © 2020 bernardo.fun, All rights reserved.
-            <p class="right" style="margin-top: 0;">本博客由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/raytaylorlin/hexo-theme-raytaylorism" target="_blank" rel="noopener">raytaylorism</a></p>
-        </div>
-    </div>
+
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">bernardo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
 </footer>
 
-
-    <noscript>
-    <div class="noscript">
-        <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
-    </div>
-</noscript>
-<div class="noscript">
-    <p class="center-align">当前网速较慢或者你使用的浏览器不支持博客特定功能，请尝试刷新或换用Chrome、Firefox等现代浏览器</p>
+  </div>
+</div>
 </div>
 
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/avatar.jpeg" alt="bernardo"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>bernardo</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>Friends</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
 
-<script src="/js/jquery.min.js"></script>
-<script src="/js/materialize.min.js"></script>
-
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // 隐藏禁用javascript（针对微信内置浏览器）的提示
-            $('.noscript').hide();
-
-            // 图片缩放效果
-            var $imgs = $('img').not('.slider-image').not('.avatar-image').not('.carousel-image').not('.card-cover-image').not('.qrcode');
-
-            // 给图片加上点击放大效果（materialbox插件）
-            $imgs.addClass('materialboxed').each(function(i, el) {
-                $(this).attr('data-caption', $(this).attr('alt') || ' ');
-            }).materialbox();
-
-            // 优化表格的显示
-            $('table').each(function() {
-                var $table = $(this);
-                // 除去多行代码的情况
-                if ($table.find('pre').length == 0) {
-                    $table.addClass('responsive-table striped bordered');
-                }
-            });
-
-            // 首页幻灯片
-            $('.slider').slider({indicators: true, full_width: true, interval: 8000});
-
-            $(".button-collapse").sideNav();
-            $(".category-menu").sideNav();
-
-            // 针对gallery post
-            $('.carousel').carousel({full_width: true});
-            $('.carousel-control.prev').click(function() {
-                $('.carousel').carousel('prev');
-            });
-            $('.carousel-control.next').click(function() {
-                $('.carousel').carousel('next');
-            });
-
-            // 文章目录
-            $('article').not('.simple-article').find('h1').add('h2').add('h3').add('h4').add('h5').add('h6').scrollSpy();
-
-            // 目录随屏幕滚动（防止目录过长越过footer）
-            var $toc = $('.toc');
-            var scrollTargetTop = 0;
-            $(window).scroll(function() {
-                var $activeLink = $toc.find('a.active.section');
-                if ($(window).scrollTop() < 100) {
-                    scrollTargetTop = 0;
-                } else {
-                    if ($activeLink[0]) {
-                        scrollTargetTop = $activeLink.offset().top - $toc.offset().top;
-                    }
-                }
-                $toc.css('top', '-' + scrollTargetTop + 'px');
-            });
-
-            // 修正文章目录的left-border颜色
-            var color = $('.table-of-contents-text').css('color');
-            $('.table-of-contents-link').css('border-left-color', color);
-
-            // 针对移动端做的优化：FAB按钮点击一下收回
-            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                $('.fixed-action-btn').addClass('click-to-toggle');
-            }
-            // 回到顶部
-            $('.btn-return-top').click(function() {
-                $('body, html').animate({
-                    scrollTop: 0
-                }, 500);
-            });
-
-            // 重置读书页面的Tab标签页的颜色
-            $('li.tab a').hover(function() {
-                $(this).toggleClass('text-lighten-4');
-            });
-            $('.indicator').addClass('pink lighten-2');
-
-            
-
-            // 搜索功能
-            $('.modal-trigger').leanModal({
-                // 打开搜索框时自动聚焦
-                ready: function() {
-                    if ($('#search').is(":visible")) {
-                        $('#search-input').focus();
-                    }
-                }
-            });
-            var searchXml = "search.xml";
-            if (searchXml.length == 0) {
-             	searchXml = "search.xml";
-            }
-            var searchPath = "/" + searchXml;
-            initSearch(searchPath, 'search-input', 'search-result');
-        });
-
-        // 初始化搜索与匹配函数
-        var initSearch = function(path, search_id, content_id) {
-            'use strict';
-            $.ajax({
-                url: path,
-                dataType: "xml",
-                success: function(xmlResponse) {
-                    // get the contents from search data
-                    var datas = $("entry", xmlResponse).map(function() {
-                        return {
-                            title: $("title", this).text(),
-                            content: $("content", this).text(),
-                            url: $("url", this).text()
-                        };
-                    }).get();
-                    var $input = document.getElementById(search_id);
-                    var $resultContent = document.getElementById(content_id);
-                    $input.addEventListener('input', function() {
-                        var str = '<ul class=\"search-result-list\">';
-                        var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                        $resultContent.innerHTML = "";
-                        if (this.value.trim().length <= 0) {
-                            return;
-                        }
-                        // perform local searching
-                        datas.forEach(function(data) {
-                            var isMatch = true;
-                            var content_index = [];
-                            var data_title = data.title.trim().toLowerCase();
-                            var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                            var data_url = data.url;
-                            var index_title = -1;
-                            var index_content = -1;
-                            var first_occur = -1;
-                            // only match artiles with not empty titles and contents
-                            if (data_title != '' && data_content != '') {
-                                keywords.forEach(function(keyword, i) {
-                                    index_title = data_title.indexOf(keyword);
-                                    index_content = data_content.indexOf(keyword);
-                                    if (index_title < 0 && index_content < 0) {
-                                        isMatch = false;
-                                    } else {
-                                        if (index_content < 0) {
-                                            index_content = 0;
-                                        }
-                                        if (i == 0) {
-                                            first_occur = index_content;
-                                        }
-                                    }
-                                });
-                            }
-                            // show search results
-                            if (isMatch) {
-                                keywords.forEach(function(keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    data_title = data_title.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                });
-
-                                str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                                var content = data.content.trim().replace(/<[^>]+>/g, "");
-                                if (first_occur >= 0) {
-                                    // cut out 100 characters
-                                    var start = first_occur - 20;
-                                    var end = first_occur + 80;
-                                    if (start < 0) {
-                                        start = 0;
-                                    }
-                                    if (start == 0) {
-                                        end = 100;
-                                    }
-                                    if (end > content.length) {
-                                        end = content.length;
-                                    }
-                                    var match_content = content.substring(start, end);
-                                    // highlight all keywords
-                                    keywords.forEach(function(keyword) {
-                                        var regS = new RegExp(keyword, "gi");
-                                        match_content = match_content.replace(regS, "<span class=\"search-keyword pink lighten-2\">" + keyword + "</span>");
-                                    });
-
-                                    str += "<p class=\"search-result\">..." + match_content + "...</p>"
-                                }
-                                str += "</li>";
-                            }
-                        });
-                        str += "</ul>";
-                        $resultContent.innerHTML = str;
-                    });
-                }
-            });
-        }
-    })(jQuery);
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
 </script>
-
-
-<script src="/js/prettify.js"></script>
-<script type="text/javascript">
-    $(document).ready(function() {
-        $("pre").addClass("prettyprint");
-        prettyPrint();
-    });
-</script>
-
-
-
-
-
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
-});
-</script>
-<script type="text/javascript" async
-  src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 
 
 </body>
